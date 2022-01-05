@@ -9,7 +9,7 @@ const creditSchema = new mongoose.Schema({
 //Esquema relacionado ao débito (pagamentos a fazer)
 const debtSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    value: { type: Number, min: 0, required: true },
+    value: { type: Number, min: 0, required: [true, 'Informe o valor do débito!' ]}, //mensagem de erro
     status: { type: String, required: false, uppercase: true, enum: ['PAGO', 'PENDENTE', 'AGENDADO'] }
 })
 //Esquema do próprio ciclo de pagamento
